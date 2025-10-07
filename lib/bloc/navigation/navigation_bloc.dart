@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:crypto_portfolio_tracker/bloc/navigation/navigation_event.dart';
 import 'package:crypto_portfolio_tracker/bloc/navigation/navigation_state.dart';
@@ -52,7 +50,7 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
             routes: routes,
           ),
         );
-      } else if (state.routes.length == 1 && Platform.isAndroid) {}
+      }
     } catch (_) {}
   }
 }
