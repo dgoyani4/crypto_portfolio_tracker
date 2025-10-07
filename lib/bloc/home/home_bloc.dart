@@ -26,7 +26,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     try {
-      if (state.isLoading || state.coins.isNotEmpty) return;
+      if (state.coins.isNotEmpty) {
+        await _loadPortfolio(LoadPortfolio(), emit);
+        return;
+      }
+
+      if (state.isLoading) return;
       emit(state.copyWith(isLoading: true));
 
       final response = await _repository.loadCryptoCurrencies();

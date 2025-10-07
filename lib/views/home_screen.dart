@@ -85,8 +85,6 @@ class _PortfolioSection extends StatelessWidget {
           (sum, coin) => sum + (coin.quantity * coin.price),
         );
 
-        final currencyFormatter = NumberFormat.currency(symbol: '\$');
-
         return Container(
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey.shade300),
@@ -98,7 +96,6 @@ class _PortfolioSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 🔹 Header Row
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -107,7 +104,7 @@ class _PortfolioSection extends StatelessWidget {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Total: ${currencyFormatter.format(totalPortfolioValue)}',
+                    'Total: \$${formatNumber(totalPortfolioValue)}',
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -163,7 +160,7 @@ class _PortfolioSection extends StatelessWidget {
                               Expanded(
                                 flex: 4,
                                 child: Text(
-                                  'Total: ${currencyFormatter.format(total)}',
+                                  'Total: \$${formatNumber(total)}',
                                   textAlign: TextAlign.right,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
