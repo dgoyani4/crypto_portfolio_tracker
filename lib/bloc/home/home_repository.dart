@@ -1,3 +1,4 @@
+import 'package:crypto_portfolio_tracker/config/bloc_events.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepository {
@@ -17,7 +18,8 @@ class HomeRepository {
       } else {
         return [];
       }
-    } catch (_) {
+    } catch (e) {
+      BlocEvents.showSnackbar(e.toString());
       return [];
     }
   }
@@ -36,6 +38,7 @@ class HomeRepository {
         return 0.0;
       }
     } catch (e) {
+      BlocEvents.showSnackbar(e.toString());
       return 0.0;
     }
   }

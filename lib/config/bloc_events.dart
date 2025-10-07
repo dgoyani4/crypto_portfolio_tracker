@@ -9,9 +9,8 @@ import 'package:provider/provider.dart';
 
 class BlocEvents {
   static void showSnackbar(String message) {
-    final context = appContext;
     ScaffoldMessenger.of(
-      context,
+      appContext,
     ).showSnackBar(SnackBar(content: Text(message)));
   }
 
